@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MarketHub | Buy & Sell</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">Market<span>Hub</span></a>
+  <div class="header-actions"><span id="who" class="muted">Guest</span><button id="logoutBtn" class="btn ghost hidden">Logout</button></div>
+</header>
+<main class="container">
+  <section class="hero">
+    <div><p class="eyebrow">BUY • SELL • DISCOVER</p><h1>Find your next<br><span>great deal.</span></h1><p class="muted">Browse approved listings or create your own listing to sell.</p></div>
+    <div class="hero-bubble">🛍️</div>
+  </section>
+
+  <section class="panel auth-panel" id="authPanel">
+    <h2>Welcome</h2><p class="muted">Sign in or create an account to list products and request orders.</p>
+    <div class="auth-grid">
+      <input id="email" type="email" placeholder="Email address" autocomplete="email">
+      <input id="password" type="password" placeholder="Password (6+ characters)" autocomplete="current-password">
+    </div>
+    <div class="actions"><button class="btn" id="loginBtn">Login</button><button class="btn secondary" id="registerBtn">Create account</button></div>
+    <p id="authMsg" class="message"></p>
+  </section>
+
+  <section class="panel hidden" id="sellPanel">
+    <div class="section-head"><div><p class="eyebrow">SELLER AREA</p><h2>List a product</h2></div><span class="pill">Admin approval required</span></div>
+    <form id="listingForm" class="form-grid">
+      <input id="title" required maxlength="90" placeholder="Product / service title">
+      <input id="price" required type="number" min="1" step="1" placeholder="Price (₹)">
+      <input id="category" required maxlength="40" placeholder="Category (e.g. Electronics)">
+      <input id="imageUrl" type="url" placeholder="Image URL (optional)">
+      <textarea id="description" required maxlength="1000" rows="3" placeholder="Describe your product or service"></textarea>
+      <button class="btn" type="submit">Submit listing</button>
+    </form>
+    <p id="listingMsg" class="message"></p>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><p class="eyebrow">MARKETPLACE</p><h2>Latest listings</h2></div><input id="search" class="search" placeholder="Search listings…"></div>
+    <div id="products" class="products"><p class="muted">Loading listings…</p></div>
+  </section>
+
+  <section class="panel hidden" id="myOrdersPanel"><h2>My order requests</h2><div id="myOrders"></div></section>
+  <footer><span>MarketHub Starter</span><a href="admin.html">Admin panel</a></footer>
+</main>
+<div id="toast" class="toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script><script src="app.js"></script>
+</body></html>
